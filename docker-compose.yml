@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # The Redis Database
+  redis-cache:
+    image: redis:alpine
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+    networks:
+      - weather-network
+    # Use persistence so data survives a restart (Pro move!)
+    command: ["redis-server", "--appendonly", "yes"]
+
+  # The Node.js Application
+  app:
+    build: .
+    container_name: weather-api-node
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis-cache:6379
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    depends_on:
+      - redis-cache
+    networks:
+      - weather-network
+
+networks:
+  weather-network:
+    driver: bridge

@@ -1,0 +1,30 @@
+{
+  "name": "distributed-caching-node-patterns",
+  "version": "1.0.0",
+  "description": "This project demonstrates production-grade integration of Redis within a Node.js microservice architecture. It focuses on optimizing API performance via the Cache-Aside pattern and protecting system resources through Distributed Rate Limiting.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikashkuma/distributed-caching-node-patterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vikashkuma/distributed-caching-node-patterns/issues"
+  },
+  "homepage": "https://github.com/vikashkuma/distributed-caching-node-patterns#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "redis": "^5.10.0"
+  }
+}
